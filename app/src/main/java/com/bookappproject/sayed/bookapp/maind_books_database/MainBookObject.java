@@ -13,6 +13,12 @@ public class MainBookObject {
         this.firebaseID = firebaseID;
     }
 
+    public MainBookObject(String bookTitle, String image, String firebaseID) {
+        this.bookTitle = bookTitle;
+        this.image = image;
+        this.firebaseID = firebaseID;
+    }
+
     public MainBookObject() {
     }
 

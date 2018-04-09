@@ -37,7 +37,7 @@
                 android:layout_weight="1"
                 android:scaleType="centerCrop"
                 android:src="@drawable/sample_cover_photo"/>
-
+<!--TODO: Delete onClick-->
             <Button
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="84dp"
@@ -47,7 +47,9 @@
                 android:layout_marginRight="8dp"
                 android:background="@drawable/play_button"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                android:onClick="gotoEdit"
+                />
         </android.support.constraint.ConstraintLayout>
         <!-- android:layout_marginLeft="8dp"
          android:layout_marginRight="8dp"-->
