@@ -1,4 +1,4 @@
-package com.bookappproject.sayed.bookapp;
+package com.bookappproject.sayed.bookapp.maind_books_database;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bookappproject.sayed.bookapp.R;
 
 import java.util.ArrayList;
 
@@ -32,8 +34,22 @@ public class MainBookAdapter extends RecyclerView.Adapter<MainBookAdapter.MainBo
 
     @Override
     public void onBindViewHolder(@NonNull MainBookHolder holder, int position) {
-        holder.imageView.setImageResource(bookObjects.get(position).getImage());
+        holder.imageView.setImageResource(getImage(bookObjects.get(position).getImage()));
         holder.textView.setText(bookObjects.get(position).getBookTitle());
+    }
+
+    // get suitable Image
+    private int getImage(String img){
+        switch (img){
+            case "one":
+                return R.drawable.sample_cover_photo;
+            case "Two":
+                return R.drawable.sample_cover_photo;
+            case "Three":
+                return R.drawable.sample_cover_photo;
+            default:
+                return R.drawable.sample_cover_photo;
+        }
     }
 
     @Override
@@ -53,7 +69,7 @@ public class MainBookAdapter extends RecyclerView.Adapter<MainBookAdapter.MainBo
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
-                    Toast.makeText(context, ""+bookObjects.get(position).getBookId(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, ""+bookObjects.get(position).getFirebaseID(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
