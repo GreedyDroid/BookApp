@@ -31,6 +31,7 @@ public class AllBooksDatabaseSource {
         long row_id = sqLiteDatabase.insert(AllBooksDatabaseHelper.TABLE_NAME, null, contentValues);
         this.close();
 
+
         if (row_id>0){
             return true;
         }else {
