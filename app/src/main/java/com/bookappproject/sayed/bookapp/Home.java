@@ -6,6 +6,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
+import com.bookappproject.sayed.bookapp.maind_books_database.MainBookAdapter;
+import com.bookappproject.sayed.bookapp.maind_books_database.MainBookObject;
+
 import java.util.ArrayList;
 
 public class Home extends AppCompatActivity {
@@ -24,12 +27,7 @@ public class Home extends AppCompatActivity {
 
         bookRV = findViewById(R.id.bookRVid);
         bookObjects = new ArrayList<>();
-        bookObjects.add(new MainBookObject("bookOneID","Sample book one", R.drawable.sample_cover_photo));
-        bookObjects.add(new MainBookObject("bookTwoID","Sample book Two", R.drawable.sample_cover_photo));
-        bookObjects.add(new MainBookObject("bookThreeID","Sample book Three", R.drawable.sample_cover_photo));
-        bookObjects.add(new MainBookObject("bookFourID","Sample book Four", R.drawable.sample_cover_photo));
-        bookObjects.add(new MainBookObject("bookFiveID","Sample book Five", R.drawable.sample_cover_photo));
-        bookObjects.add(new MainBookObject("bookSixID","Sample book Six", R.drawable.sample_cover_photo));
+
 
         bookAdapter = new MainBookAdapter(this, bookObjects);
         LinearLayoutManager llm = new LinearLayoutManager(this);
