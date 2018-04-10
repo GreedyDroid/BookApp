@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.bookappproject.sayed.bookapp.maind_books_database.AllBooksDatabaseSource;
-import com.bookappproject.sayed.bookapp.maind_books_database.MainBookObject;
+import com.bookappproject.sayed.bookapp.main_books_database.AllBooksDatabaseSource;
+import com.bookappproject.sayed.bookapp.main_books_database.MainBookObject;
 
 public class DataAddActivity extends AppCompatActivity {
     EditText bookNameET;

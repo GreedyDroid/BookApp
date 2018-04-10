@@ -16,7 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DataAddActivity"></activity>
+        <activity android:name=".DataAddActivity" />
+        <activity
+            android:name=".book_detail.book_deteil_ui.BookCover"
+            android:label="@string/title_activity_book_cover"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

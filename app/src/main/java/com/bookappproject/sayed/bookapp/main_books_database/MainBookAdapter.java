@@ -1,6 +1,7 @@
-package com.bookappproject.sayed.bookapp.maind_books_database;
+package com.bookappproject.sayed.bookapp.main_books_database;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bookappproject.sayed.bookapp.R;
+import com.bookappproject.sayed.bookapp.book_detail.book_deteil_ui.BookCover;
 
 import java.util.ArrayList;
 
@@ -68,8 +70,9 @@ public class MainBookAdapter extends RecyclerView.Adapter<MainBookAdapter.MainBo
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int position = getAdapterPosition();
-                    Toast.makeText(context, ""+bookObjects.get(position).getFirebaseID(), Toast.LENGTH_SHORT).show();
+                    /*int position = getAdapterPosition();
+                    Toast.makeText(context, ""+bookObjects.get(position).getFirebaseID(), Toast.LENGTH_SHORT).show();*/
+                    context.startActivity(new Intent(context, BookCover.class));
                 }
             });
         }

@@ -1,4 +1,4 @@
-package com.bookappproject.sayed.bookapp.maind_books_database;
+package com.bookappproject.sayed.bookapp.main_books_database;
 
 public class MainBookObject {
     private int bookId;
