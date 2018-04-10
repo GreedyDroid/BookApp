@@ -1,4 +1,4 @@
-package com.bookappproject.sayed.bookapp.maind_books_database;
+package com.bookappproject.sayed.bookapp.main_books_database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,7 +15,7 @@ public class AllBooksDatabaseHelper extends SQLiteOpenHelper{
     public static final String COL_IMG = "two";
 
     public static final String CREATE_TABLE_BOOKS= "create table "+TABLE_NAME+"("+COL_ID+
-            " integer primary key autoincrement, "+COL_TITLE+" text, " +COL_IMG+" text, "+COL_FIREBASE_ID+ " text);";
+            " integer primary key autoincrement, "+COL_TITLE+" text, " +COL_IMG+" text, "+COL_FIREBASE_ID + " text);";
 
 
     public AllBooksDatabaseHelper(Context context) {
