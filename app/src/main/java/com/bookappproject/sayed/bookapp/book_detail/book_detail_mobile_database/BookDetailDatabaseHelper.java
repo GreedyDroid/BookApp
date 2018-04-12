@@ -16,10 +16,15 @@ public class BookDetailDatabaseHelper extends SQLiteOpenHelper{
     public static final String COL_DESCRIPTION = "tbl_description";
 
 
-    private String createTableBook= "create table "+tableName+"("+COL_ID+
+/*    private String createTableBook= "create table "+tableName+"("+COL_ID+
             " integer primary key autoincrement, "+COL_FIREBASE_ID+" text, "
-            +COL_TITLE+" text, " +COL_SERIAL+" text, "+COL_DESCRIPTION + " text);";
+            +COL_TITLE+" text, " +COL_SERIAL+" text, "+COL_DESCRIPTION + " text);";*/
 
+    private String createTableQuery(String tableName){
+        return "create table "+tableName+"("+COL_ID+
+                " integer primary key autoincrement, "+COL_FIREBASE_ID+" text, "
+                +COL_TITLE+" text, " +COL_SERIAL+" text, "+COL_DESCRIPTION + " text);";
+    }
     public BookDetailDatabaseHelper(Context context, String tableName) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.tableName = tableName;
@@ -27,7 +32,8 @@ public class BookDetailDatabaseHelper extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(createTableBook);
+
+        db.execSQL(createTableQuery(tableName));
     }
 
     @Override
