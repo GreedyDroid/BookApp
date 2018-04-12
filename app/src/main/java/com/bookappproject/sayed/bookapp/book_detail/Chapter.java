@@ -5,14 +5,15 @@ public class Chapter {
     private String chapterSerial;
     private String chapterTitle;
     private String chapterDescription;
+    private String firebaseID;
 
-    public Chapter(String chapterId, String chapterSerial, String chapterTitle, String chapterDescription) {
+    public Chapter(String chapterId, String chapterSerial, String chapterTitle, String chapterDescription, String firebaseID) {
         this.chapterId = chapterId;
         this.chapterSerial = chapterSerial;
         this.chapterTitle = chapterTitle;
         this.chapterDescription = chapterDescription;
+        this.firebaseID = firebaseID;
     }
-
     public Chapter() {
     }
 
@@ -30,5 +31,9 @@ public class Chapter {
 
     public String getChapterDescription() {
         return chapterDescription;
+    }
+
+    public String getFirebaseID() {
+        return firebaseID;
     }
 }
