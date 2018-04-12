@@ -10,14 +10,14 @@ public class BookDetailDatabaseHelper extends SQLiteOpenHelper{
     public static final int DATABASE_VERSION = 1;
     private String tableName;
     public static final String COL_ID = "tbl_id";
-    public static final String COL_CHAPTER_ID = "tbl_chapter_id";
+    public static final String COL_FIREBASE_ID = "tbl_firbase_id";
     public static final String COL_TITLE = "tbl_title";
     public static final String COL_SERIAL = "tbl_serial";
     public static final String COL_DESCRIPTION = "tbl_description";
 
 
     private String createTableBook= "create table "+tableName+"("+COL_ID+
-            " integer primary key autoincrement, "+COL_CHAPTER_ID+" text, "
+            " integer primary key autoincrement, "+COL_FIREBASE_ID+" text, "
             +COL_TITLE+" text, " +COL_SERIAL+" text, "+COL_DESCRIPTION + " text);";
 
     public BookDetailDatabaseHelper(Context context, String tableName) {
