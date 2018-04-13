@@ -49,8 +49,8 @@ public class DataAddActivity extends AppCompatActivity {
         }else if(chapterDescriptionET.getText().toString().isEmpty()){
             chapterDescriptionET.setError("Please Enter the Description");
         }else if (chapters.size()>0){
-            BookDetail book = new BookDetail(bookFirebaseIdTbl, chapters);
-            bookDetailDatabaseSource = new BookDetailDatabaseSource(this, bookFirebaseIdTbl);
+            BookDetail book = new BookDetail(bookName,bookFirebaseIdTbl, chapters);
+            bookDetailDatabaseSource = new BookDetailDatabaseSource(this);
             boolean status = bookDetailDatabaseSource.addBook(book);
 
             if (status){
