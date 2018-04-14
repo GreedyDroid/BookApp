@@ -1,5 +1,6 @@
 package com.bookappproject.sayed.bookapp.book_detail.book_deteil_ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,11 +13,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.bookappproject.sayed.bookapp.R;
+import com.bookappproject.sayed.bookapp.book_detail.BookDetail;
+import com.bookappproject.sayed.bookapp.book_detail.Chapter;
+import com.bookappproject.sayed.bookapp.book_detail.book_detail_mobile_database.BookDetailDatabaseSource;
+
+import java.util.ArrayList;
 
 public class BookCover extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    TextView bookTitleTV, bookFirebaseIdTV, totalChapterTV, chapterTV, chapterDescriptionTV;
+    String bookFirebaseID;
+    BookDetailDatabaseSource bookDatabaseSource;
+    BookDetail bookDetail;
+    ArrayList<Chapter>chapters;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +37,26 @@ public class BookCover extends AppCompatActivity
         setContentView(R.layout.activity_book_cover);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        bookTitleTV = findViewById(R.id.bookTitleId);
+        bookFirebaseIdTV = findViewById(R.id.bookFirebaseID);
+        totalChapterTV = findViewById(R.id.bookTotalChapterID);
+        chapterTV = findViewById(R.id.chapterOneId);
+        chapterDescriptionTV = findViewById(R.id.chapterDescriptionId);
+
+        Intent intent = getIntent();
+        bookFirebaseID = intent.getStringExtra("BOOK_ID");
+        bookDatabaseSource = new BookDetailDatabaseSource(this);
+        bookDetail = bookDatabaseSource.getBookDetail(bookFirebaseID);
+        bookTitleTV.setText(bookDetail.getBookName());
+        bookFirebaseIdTV.setText(bookDetail.getBookFirebaseID());
+        chapters = bookDetail.getChapters();
+        String toatalChapter = String.valueOf(chapters.size());
+        totalChapterTV.setText(toatalChapter);
+        chapterTV.setText(chapters.get(0).getChapterTitle());
+        chapterDescriptionTV.setText(chapters.get(0).getChapterDescription());
+
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

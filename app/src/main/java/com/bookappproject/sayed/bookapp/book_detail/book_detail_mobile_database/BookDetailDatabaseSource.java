@@ -28,7 +28,7 @@ public class BookDetailDatabaseSource {
         database.needUpgrade(version+1);*/
 
     }
-    public void openRedable(){
+    public void openReadable(){
         database = databaseHelper.getReadableDatabase();
     }
 
@@ -66,11 +66,12 @@ public class BookDetailDatabaseSource {
     //Get All Chapter
     public BookDetail getBookDetail(String bookFirebaseID){
         ArrayList<Chapter>chapters =  new ArrayList<>();
-        this.openRedable();
+        this.openReadable();
 
         Cursor cursor = database.query(BookDetailDatabaseHelper.TABLE_NAME, null, BookDetailDatabaseHelper.COL_FIREBASE_BOOK_ID+" = ?",
                                         new String[]{bookFirebaseID},
                                         null, null, null);
+
         boolean flag = true;
         String bookName="";
         if (cursor.moveToFirst()){
