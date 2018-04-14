@@ -72,7 +72,8 @@ public class MainBookAdapter extends RecyclerView.Adapter<MainBookAdapter.MainBo
                 public void onClick(View v) {
                     /*int position = getAdapterPosition();
                     Toast.makeText(context, ""+bookObjects.get(position).getFirebaseID(), Toast.LENGTH_SHORT).show();*/
-                    context.startActivity(new Intent(context, BookCover.class));
+                    context.startActivity(new Intent(context, BookCover.class)
+                                            .putExtra("BOOK_ID", bookObjects.get(getAdapterPosition()).getFirebaseID()));
                 }
             });
         }
