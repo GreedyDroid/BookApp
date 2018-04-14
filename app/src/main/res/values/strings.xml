@@ -9,4 +9,6 @@
     <string name="action_settings">Settings</string>
     <string name="book_image">Book Image</string>
     <string name="title_activity_book_cover">BookCover</string>
+    <string name="chapter_name">Chapter Name</string>
+    <string name="chapter_icon">chapter icon</string>
 </resources>
