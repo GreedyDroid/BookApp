@@ -13,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bookappproject.sayed.bookapp.R;
@@ -24,11 +26,13 @@ import java.util.ArrayList;
 
 public class BookCover extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    TextView bookTitleTV, bookFirebaseIdTV, totalChapterTV, chapterTV, chapterDescriptionTV;
-    String bookFirebaseID;
+    private TextView bookTitleTV, bookFirebaseIdTV, totalChapterTV, chapterTV, chapterDescriptionTV;
+    private String bookFirebaseID;
     BookDetailDatabaseSource bookDatabaseSource;
     BookDetail bookDetail;
     ArrayList<Chapter>chapters;
+    private ListView navItemListView;
+    private NavigationItemAdapter navigationItemAdapter;
 
 
     @Override
@@ -57,6 +61,19 @@ public class BookCover extends AppCompatActivity
         chapterDescriptionTV.setText(chapters.get(0).getChapterDescription());
 
 
+        navItemListView = findViewById(R.id.list_view_inside_nav);
+        navigationItemAdapter = new NavigationItemAdapter(this, chapters);
+        navItemListView.setAdapter(navigationItemAdapter);
+        navItemListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Chapter chapter =  chapters.get(position);
+                chapterTV.setText(chapter.getChapterTitle());
+                chapterDescriptionTV.setText(chapter.getChapterDescription());
+                closeDrawer();
+            }
+        });
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +92,13 @@ public class BookCover extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void closeDrawer(){
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)){
+            drawer.closeDrawer(GravityCompat.START);
+        }
     }
 
     @Override
