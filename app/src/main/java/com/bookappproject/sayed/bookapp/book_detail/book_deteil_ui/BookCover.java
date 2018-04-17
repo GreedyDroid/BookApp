@@ -39,8 +39,6 @@ public class BookCover extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_cover);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         bookTitleTV = findViewById(R.id.bookTitleId);
         bookFirebaseIdTV = findViewById(R.id.bookFirebaseID);
@@ -60,6 +58,9 @@ public class BookCover extends AppCompatActivity
         chapterTV.setText(chapters.get(0).getChapterTitle());
         chapterDescriptionTV.setText(chapters.get(0).getChapterDescription());
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(bookDetail.getBookName());
+        setSupportActionBar(toolbar);
 
         navItemListView = findViewById(R.id.list_view_inside_nav);
         navigationItemAdapter = new NavigationItemAdapter(this, chapters);
