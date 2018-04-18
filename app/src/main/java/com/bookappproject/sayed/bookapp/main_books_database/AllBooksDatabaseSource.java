@@ -40,7 +40,7 @@ public class AllBooksDatabaseSource {
     }
 
     //Get ALl Books
-    public ArrayList<MainBookObject> getAllMovies() {
+    public ArrayList<MainBookObject> getAllBooks() {
         ArrayList<MainBookObject>bookObjects = new ArrayList<>();
         this.open();
 

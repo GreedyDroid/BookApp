@@ -9,7 +9,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
-import com.bookappproject.sayed.bookapp.book_detail.book_deteil_ui.BookCover;
 import com.bookappproject.sayed.bookapp.main_books_database.AllBooksDatabaseSource;
 import com.bookappproject.sayed.bookapp.main_books_database.MainBookAdapter;
 import com.bookappproject.sayed.bookapp.main_books_database.MainBookObject;
@@ -32,7 +31,7 @@ public class Home extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         booksDatabaseSource = new AllBooksDatabaseSource(this);
-        bookObjects = booksDatabaseSource.getAllMovies();
+        bookObjects = booksDatabaseSource.getAllBooks();
 
         bookRV = findViewById(R.id.bookRVid);
 
